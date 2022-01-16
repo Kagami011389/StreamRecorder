@@ -211,6 +211,8 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "直播紀錄簿";
             this.TopMost = true;
+            this.Activated += new System.EventHandler(this.Form1_Activated);
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

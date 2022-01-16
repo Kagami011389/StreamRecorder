@@ -19,7 +19,7 @@ namespace hello_world
         public Form1()
         {
             InitializeComponent();
-            HotkeyManager.Current.AddOrReplace("Record", Keys.Alt | Keys.Q, button1_Click);
+            HotkeyManager.Current.AddOrReplace("Record", Keys.Alt | Keys.W, button1_Click);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,18 +32,25 @@ namespace hello_world
         
         private void button1_Click(object sender, EventArgs e)
         {
+
             if(time.StreamDateTime != new DateTime())
             {
                 if (this.textBox1.Text == "")
                 {
+                    
                     this.textBox1.AppendText(time.GetTimeStamp());
                     this.textBox1.Focus();
+                    this.Show();
+                    this.Activate();
                 }
                 else
                 {
+                    
                     this.textBox1.AppendText(Environment.NewLine);
                     this.textBox1.AppendText(time.GetTimeStamp() + " ");
                     this.textBox1.Focus();
+                    this.Show();
+                    this.Activate();
                 }
             }
             else
@@ -163,6 +170,16 @@ namespace hello_world
                     
                 }
             }
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+           
         }
     }
     public class TimeStampProcess
