@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using NHotkey.WindowsForms;
 
 namespace hello_world
 {
@@ -18,6 +19,7 @@ namespace hello_world
         public Form1()
         {
             InitializeComponent();
+            HotkeyManager.Current.AddOrReplace("Record", Keys.Alt | Keys.Q, button1_Click);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -25,18 +27,28 @@ namespace hello_world
 
         }
 
+
+        
         
         private void button1_Click(object sender, EventArgs e)
-        {   
-            if(this.textBox1.Text == "")
+        {
+            if(time.StreamDateTime != new DateTime())
             {
-                MessageBox.Show("請更改直播時間");
+                if (this.textBox1.Text == "")
+                {
+                    this.textBox1.AppendText(time.GetTimeStamp());
+                    this.textBox1.Focus();
+                }
+                else
+                {
+                    this.textBox1.AppendText(Environment.NewLine);
+                    this.textBox1.AppendText(time.GetTimeStamp() + " ");
+                    this.textBox1.Focus();
+                }
             }
             else
             {
-                this.textBox1.AppendText(Environment.NewLine);
-                this.textBox1.AppendText(time.GetTimeStamp(new DateTime(2021, 12, 19, 12, 00, 00)));
-                this.textBox1.Focus();
+                MessageBox.Show("時間參考錯誤\n(使用現在時間 -> 更改)");
             }
             
         }
@@ -47,7 +59,14 @@ namespace hello_world
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                button4_Click(sender, e);
+            }
+            catch
+            {
+                MessageBox.Show("不能自動備份");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -61,7 +80,15 @@ namespace hello_world
 
         private void button3_Click(object sender, EventArgs e)
         {
-            time.SetStreamDateTime(this.textBox2.Text);
+            try
+            {
+                time.SetStreamDateTime(this.textBox2.Text);
+            }
+            catch
+            {
+                MessageBox.Show("時間格式不正確 正確格式:2022/1/16 19:19:59");
+            }
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -96,7 +123,7 @@ namespace hello_world
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"時間位移錯誤:{ex.Message}");
+                MessageBox.Show($"時間位移錯誤:{ex.Message}\n可以輸入數字\n加時間:30\n減時間:-30");
                 //this.textBox1.AppendText(Environment.NewLine);
                 //this.textBox1.AppendText($"{ex.Message}");
                 return;
@@ -140,11 +167,26 @@ namespace hello_world
     }
     public class TimeStampProcess
     {
-        private DateTime streamDateTime;
-        public String GetTimeStamp(DateTime time)
-        {
-            time = streamDateTime;
-            return DateTime.Now.Subtract(time).ToString().Substring(0, 8);
+        private DateTime streamDateTime ;
+
+        public DateTime StreamDateTime { 
+            get { return streamDateTime; }
+            set
+            {
+                streamDateTime = value;
+            } }
+        public String GetTimeStamp()
+        {   
+            if(DateTime.Now.Subtract(streamDateTime).ToString().Substring(0, 8) != "738163.1")
+            {
+                DateTime time = streamDateTime;
+                return DateTime.Now.Subtract(time).ToString().Substring(0, 8);
+            }
+            else
+            {
+                throw new Exception("timecode error");
+            }
+            
         }
 
         public void SetStreamDateTime(string times)

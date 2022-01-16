@@ -55,7 +55,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 33);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 1;
             this.button1.Text = "時間";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -71,7 +71,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(231, 200);
-            this.textBox1.TabIndex = 3;
+            this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox1
@@ -91,7 +91,7 @@
             this.textBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.textBox2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox2.Location = new System.Drawing.Point(381, 287);
+            this.textBox2.Location = new System.Drawing.Point(386, 287);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(177, 25);
             this.textBox2.TabIndex = 5;
@@ -110,11 +110,11 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(381, 259);
+            this.button2.Location = new System.Drawing.Point(386, 259);
             this.button2.Margin = new System.Windows.Forms.Padding(8);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(177, 30);
-            this.button2.TabIndex = 2;
+            this.button2.TabIndex = 3;
             this.button2.Text = "使用現在時間";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -130,11 +130,11 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(319, 284);
+            this.button3.Location = new System.Drawing.Point(324, 284);
             this.button3.Margin = new System.Windows.Forms.Padding(8);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(58, 28);
-            this.button3.TabIndex = 2;
+            this.button3.TabIndex = 4;
             this.button3.Text = "更改";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -158,7 +158,7 @@
             this.textBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.textBox3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox3.Location = new System.Drawing.Point(479, 223);
+            this.textBox3.Location = new System.Drawing.Point(484, 223);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(79, 25);
             this.textBox3.TabIndex = 5;
@@ -176,7 +176,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(410, 221);
+            this.button5.Location = new System.Drawing.Point(415, 221);
             this.button5.Margin = new System.Windows.Forms.Padding(8);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(58, 28);
@@ -192,7 +192,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(564, 319);
+            this.ClientSize = new System.Drawing.Size(569, 319);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -211,7 +211,6 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "直播紀錄簿";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
